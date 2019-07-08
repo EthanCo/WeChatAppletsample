@@ -1,0 +1,3 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+<text>当前的Id值为{{opt.id}}</text>

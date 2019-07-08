@@ -1,0 +1,29 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+<!-- 用在内容节点 -->
+<view>{{ info }}</view>
+<!-- 用在属性节点 -->
+<view id='{{id}}'></view>
+<view>{{flag?'条件为真':'条件为假'}}</view>
+<button type='primary' bindtap='btnHandler1'>按钮</button>
+<view wx:for="{{myarray}}" wx:key="index">
+  索引是{{index}} 当前项是{{item.msg}}
+</view>
+
+<image src='/images/tabs/home.png' class="img1"></image>
+
+<!-- indicator-dots 是否展示小圆点 -->
+<!-- autoplay 是否自动轮播 -->
+<!-- circular 是否衔接轮播 -->
+<!-- interval 自动轮播的间隔，单位是毫秒，默认每5000毫秒轮播一次 -->
+<swiper autoplay='true' indicator-dots='true' circular='true' interval='2000'>
+  <swiper-item>轮播图1</swiper-item>
+  <swiper-item>轮播图2</swiper-item>
+  <swiper-item>轮播图3</swiper-item>
+</swiper>
+<navigator url='/pages/test/test?id=3'>跳转到Test页面</navigator>
+
+<button type='primary' bindtap='showLoading'>显示Loading对话框</button>
+<button type='primary' bindtap='hideLoading'>影藏Loading对话框</button>
+<button bindtap='requestHttpGET'>发起GET请求</button>
+<button bindtap='requestHttpPOST'>发起POST请求</button>
