@@ -25,6 +25,11 @@ Page({
   },
 
   getShopList : function(){
+    //在发起请求之前，展示loading效果
+    wx.showLoading({
+      title: '正在加载中...',
+    })
+
     wx.request({
       url: 'https://www.liulongbin.top:8081/categories/'+this.data.opts.id+'/shops?_page='+this.data.page+'&_limit='+this.data.pageSize,
       success:(res)=>{
@@ -39,6 +44,7 @@ Page({
       complete:()=>{
         //只要完成请求，就立即关闭下拉刷新的效果
         wx.stopPullDownRefresh()
+        wx.hideLoading()
       }})
   },
 
