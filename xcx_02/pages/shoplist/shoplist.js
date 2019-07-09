@@ -35,6 +35,10 @@ Page({
           //ES6 拼接后再赋值
           shopList:[...this.data.shopList,...res.data]
         })
+      },
+      complete:()=>{
+        //只要完成请求，就立即关闭下拉刷新的效果
+        wx.stopPullDownRefresh()
       }})
   },
 
@@ -70,7 +74,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log("下拉刷新了")
+    this.setData({
+      page:1,
+      shopList:[]
+    })
 
+    this.getShopList()
   },
 
   /**
