@@ -30,7 +30,10 @@ Page({
       success:(res)=>{
         console.log(res)
         this.setData({
-          shopList:res.data
+          //赋值
+          //shopList:res.data
+          //ES6 拼接后再赋值
+          shopList:[...this.data.shopList,...res.data]
         })
       }})
   },
@@ -74,7 +77,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("需要加载下一页数据了")
+    //1.先让页码值+1
+    this.setData({
+      page:this.data.page+1
+    })
 
+    //2.调用刚才的getShapList函数，
+    this.getShopList()
   },
 
   /**
